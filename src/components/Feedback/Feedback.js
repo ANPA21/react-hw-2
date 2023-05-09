@@ -26,10 +26,14 @@ class Feedback extends Component {
       : `${Math.round((this.state.good / this.calculateTotal()) * 100)}%`;
   };
   render() {
+    const options = Object.keys(this.state);
     return (
       <Wrapper>
         <Section title="Feedback">
-          <FeedbackOptions options={this.handleIncrement} />
+          <FeedbackOptions
+            options={options}
+            onLeaveFeedback={this.handleIncrement}
+          />
         </Section>
 
         <Section title="Statistics">
